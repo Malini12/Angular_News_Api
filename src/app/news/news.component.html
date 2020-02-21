@@ -1,0 +1,51 @@
+<div class="container">
+  <div>
+    <mat-button-toggle-group #colorToggle="matButtonToggleGroup" value="accent">
+      <mat-button-toggle value="primary"></mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div>
+    <mat-button-toggle-group
+      #backgroundColorToggle="matButtonToggleGroup"
+      value="primary"
+    >
+      <mat-button-toggle value="primary"></mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <mat-tab-group
+    [color]="colorToggle.value"
+    [backgroundColor]="backgroundColorToggle.value"
+  >
+    <mat-tab label="Apple">
+      <div *ngFor="let article of articles">
+        <br />
+
+        <div class="card bg-light mb-3">
+          <div class="card-body">
+            <h2>{{ article.title }}</h2>
+            <p><b>news by :</b> {{ article.author }}</p>
+            <p>
+              {{ article.description }}
+            </p>
+            <p>read more at <b>Academy</b></p>
+            <div class="card bg-light mb-3" style="width: 18rem">
+              <img
+                class="card-img-top"
+                src="{{ article.urlToImage }}"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="India"> </mat-tab>
+    <mat-tab label="Cricket"> </mat-tab>
+    <mat-tab label="Oscar 2k19"> </mat-tab>
+    <mat-tab label="Technology"> </mat-tab>
+    <mat-tab label="International"> </mat-tab>
+  </mat-tab-group>
+</div>
